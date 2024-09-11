@@ -75,12 +75,15 @@ def integration(k):
         result += 0.5 * dTheta * (sum1 + sum2)
     return result
 
-fileName = 'crack_x.csv'
+phi=0.01 #volume fraction (0 <= phi <= 1.0)
+sigma_l = 1.0 # conductivity (S/m) of the coductive phase in cracks
+fileName = 'crack_sigma_x.csv'
 f = open(fileName, 'w')
+f.write("kappa, sigma_x"+'\n')
 list = (100.0, 50.0, 30.0, 20.0, 10.0, 5.0, 3.0, 2.0, 1.0, 0.0, -1.0, -2.0, -3.0, -5.0, -10.0, -20.0, -30.0, -50.0, -100.0)
-for k in list:
-    result = integration(k)
-    s = str(k)+','+str(result)+'\n'
+for kappa in list:
+    sigma_x = integration(kappa) * sigma_l * phi # conductivity (S/m)
+    s = str(kappa)+','+str(sigma_x)+'\n'
     f.write(s)
     f.flush()
 f.close()

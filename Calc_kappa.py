@@ -106,7 +106,11 @@ def integrationSigmaX(k):
 def f(k, ans):
     return integrationSigmaX(k)/integrationSigmaZ(k) - ans
 
-ans = 17.53667954
+sigma_x = 0.0038610038610 # conductivty (S/m) along x-axis
+sigma_z = 0.0002201673272 # conductivty (S/m) along z-axis
+sigma_l = 21.0 # conductivity (S/m) of the coductive phase in cracks
+
+ans = sigma_x / sigma_z
 eps = 0.001
 a = -10.0
 b = 10.0
@@ -118,11 +122,10 @@ while True:
     else:
         a = c
     if abs(f(c, ans)) < eps:
-        fileName = 'kappa.txt'
+        fileName = 'kappa_phi.txt'
         f = open(fileName, 'w')
         f.write("kappa: " + str(c) + "\n")
-        f.write("factor X: " + str(integrationSigmaX(c)) + "\n")
-        f.write("factor Z: " + str(integrationSigmaZ(c)) + "\n")
+        f.write("crack volume fraction: " + str(sigma_z/integrationSigmaZ(c)/sigma_l) + "\n")
         f.close()
         break
     n += 1
