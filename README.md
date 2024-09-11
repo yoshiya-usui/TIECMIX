@@ -1,5 +1,5 @@
 # TIECMIX
-Those scripts allows one to calulate the electrical conductivity for transversely isotropic rocks with interconnected cracks/tube based on the theory of Usui (2024)
+Those scripts allows one to calulate the electrical conductivity for transversely isotropic rocks with interconnected cracks/tube based on the theory of Usui (2024), assuming the Watson distribution.
 
 _Yoshiya Usui, 2024, **Electrical conductivity model for transversely isotropic rocks with interconnected cracks**, Physics of the Earth and Planetary Interiors, https://doi.org/10.1016/j.pepi.2024.107226_
 
