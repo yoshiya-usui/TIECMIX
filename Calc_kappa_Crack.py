@@ -112,8 +112,8 @@ sigma_l = 21.0 # conductivity (S/m) of the coductive phase in cracks
 
 ans = sigma_x / sigma_z
 eps = 0.001
-a = -10.0
-b = 10.0
+a = -100.0
+b = 100.0
 n = 1
 while True:
     c = (a + b)/2
